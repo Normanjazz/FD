@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google sheets Form</title>
+    <title>Показания</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,8 +24,8 @@
     <div class="container">      
       <div class="row">
         <div class="col-md-12 mx-auto form-container">            
-            <h1>Form Demo</h1>            
-            <form method="post" name="data_form" id="data_form" action="">
+            <h1>Заполнение показаний приборов</h1>            
+            <form action="https://sheetdb.io/api/v1/uc8wtajf1sdwd" method="post" name="data_form" id="data_form">
                 <div class="form-group">
                     <label>Выберите дату:</label><br>
                     <input type="date" name="date" class="form-control" id="date" required>
@@ -59,17 +58,22 @@
       </div>
     </div>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzjQkDEh191kGxebgbhDcYCLLeu5loXoZQpIttc90ATnIfbYZLSADj0BDjKdbgzbMM1/exec'
-        const form = document.forms['data_form']
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Thank you! your form is submitted successfully." ))
-            .then(() => {  window.location.reload(); })
-            .catch(error => console.error('Error!', error.message))
-        })
+    <script>        
+        var form = document.getElementById('data_form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("data_form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            window.open('page2.html', '_blank');
+
+          });
+        });
+        
     </script>
     <!-- Bootstrap JavaScript -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
