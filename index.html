@@ -1,78 +1,30 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Показания</title>
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style type="text/css">
-      body {
-        background-image: url("https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-        background-size: cover;
-        background-position: center;
-      }
-      .form-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-      }
-    </style>
-
-  </head>
-  <body>
-    
-    <div class="container">      
-      <div class="row">
-        <div class="col-md-12 mx-auto form-container">            
-            <h1>Заполнение показаний приборов</h1>            
-            <form action="https://sheetdb.io/api/v1/uc8wtajf1sdwd" method="post" name="data_form" id="data_form">
-                <div class="form-group">
-                    <label>Выберите дату:</label><br>
-                    <input type="date" name="date" class="form-control" id="date" required>
-                </div>
-                <div class="form-group">
-                <label for="street">Street:</label>
-                <select class="form-control" name="street" id= "street" required>
-                    <option value="">Выберите улицу</option>
-                    <option value="1">Street 1</option>
-                    <option value="2">Street 2</option>
-                    <option value="3">Street 3</option>
-                </select>
-                </div>
-                <div class="form-group">
-                <label for="house_number">Номер дома:</label>
-                <input type="text" class="form-control" name="house_number" id="house_number" required>
-                </div>
-                <div class="form-group">
-                <label for="apartment_number">Номер квартиры:</label>
-                <input type="number" class="form-control" name="apartment_number" id="apartment_number" required>
-                </div>
-                <div class="form-group">
-                <label for="notes">Примечания:</label>
-                <textarea class="form-control" name="notes" rows="3" id="notes"></textarea>
-                </div>
-            </form>  
-            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-          </form>
-        </div>
+</head>
+<body>
+<div class="section">
+    <div class="description">
+      <p>Глубокоуважаемый Алексей Борисович!<br>
+        Направляя данную ссылку, хотим выразить Вам свое глубочайшее почтение и громко заявить о том, что мы Вас очень ждем и хотим, чтобы и Вы быстрее присоединились к нашей группе!<br>
+        Надеемся, что эти приятные мгновения для Вас пролетят незаметно!<br>
+        Не волнуйтесь, билеты почти заказаны!
+      </p>
+    </div>
+    <div class="timer">
+      <div class="timer__items">
+        <div class="timer__item timer__days">00</div>
+        <div class="timer__item timer__hours">00</div>
+        <div class="timer__item timer__minutes">00</div>
+        <div class="timer__item timer__seconds">00</div>
       </div>
     </div>
-
-    <script>        
-        var form = document.getElementById('data_form');
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          fetch(form.action, {
-              method : "POST",
-              body: new FormData(document.getElementById("data_form")),
-          }).then(
-              response => response.json()
-          )
-        });
-        
-    </script>
-    <!-- Bootstrap JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf
+</div>
+      <script src="main.js"></script>   
+</body>
+</html>
